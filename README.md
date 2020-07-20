@@ -1,4 +1,4 @@
-# tailwind-css
+# Food Restaurant with TailwindCSS
 
 ## Build Setup
 
