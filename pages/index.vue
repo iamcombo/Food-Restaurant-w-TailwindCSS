@@ -3,12 +3,15 @@
     <div class="grid md:grid-cols-3">
       <div class="md:col-span-1 md:flex md:justify-end">
         <nav class="text-right">
-          <div>
+          <div class="flex justify-between items-center">
             <h1 class="font-bold uppercase p-4 border-b border-gray-100">
-              <a href="/" class="hover:text-gray-700">Food Ninja</a>
+              <a href="/" class="hover:text-gray-700">Food PISET</a>
             </h1>
+            <div class="px-4 cursor-pointer md:hidden" @click="handleNav">
+              <svg class="w-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
           </div>
-          <ul class="text-sm mt-6">
+          <ul class="text-sm mt-6 md:block" v-if="nav">
             <li class="text-gray-700 font-bold py-2">
               <a href="#" class="flex justify-end px-4 border-r-4 border-orange-500">
                 <span>Home</span>
@@ -33,8 +36,8 @@
     
       <main class="px-16 py-16 bg-gray-100 md:col-span-2">
         <div class="flex justify-center md:justify-end">
-          <a href="#" class="text-orange-600 btn border-orange-600 md:border-2 hover:bg-orange-600 hover:text-white">Log in</a>
-          <a href="#" class="text-orange-600 ml-2 btn border-orange-600 md:border-2 hover:bg-orange-600 hover:text-white">Sign up</a>
+          <a href="#" class="text-orange-600 btn border-orange-600 md:border-2 hover:bg-orange-600 hover:text-white transition ease-in-out duration-500">Log in</a>
+          <a href="#" class="text-orange-600 ml-2 btn border-orange-600 md:border-2 hover:bg-orange-600 hover:text-white transition ease-in-out duration-500">Sign up</a>
         </div>
 
         <header>
@@ -90,7 +93,7 @@
         </div>
 
         <div class="flex justify-center mt-8">
-          <div class="btn bg-blue-400 text-white hover:shadow-inner">Load more</div>
+          <div class="btn bg-blue-400 text-white hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">Load more</div>
         </div>    
       </main>
     </div>
@@ -99,7 +102,16 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      nav: false
+    }
+  },
+  methods: {
+    handleNav() {
+      this.nav = !this.nav
+    }
+  }
 }
 </script>
 
